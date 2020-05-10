@@ -1,0 +1,45 @@
+swagger: "2.0"
+
+info:
+  title: Accentis Core Service API
+  version: 0.1.0
+  description: The Accentis Core service API provides the ability to manipulate core resources in the system.
+
+host: api.accentis.local
+schemes:
+  - http
+
+basePath: /v1/core
+
+produces:
+  - application/json
+
+paths:
+  /health:
+    get:
+      tags:
+        - healthcheck
+      summary: Health Check
+      description: Retrieves the health status of the service.
+      operationId: healthCheck
+      responses:
+        200:
+          description: The service is operating normally.
+          schema:
+            $ref: "#/definitions/HealthStatus"
+        503:
+          description: The service is not operating normally.
+          schema:
+            $ref: "#/definitions/HealthStatus"
+
+definitions:
+  HealthStatus:
+    description: The HealthStatus object is returned by all responses to the healthCheck operation.
+    properties:
+      status:
+        description: The status field contains a keyword describing the health status of the service.
+        type: string
+        enum: ["healthy", "not healthy"]
+      message:
+        description: The message field contains a human readable message to summarize the status of the service, intended to be displayed in a UI.
+        type: string
