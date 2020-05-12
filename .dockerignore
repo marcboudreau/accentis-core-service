@@ -1,0 +1,9 @@
+.dockerignore
+.git
+.gitignore
+Dockerfile
+README.md
+core-server
+models
+restapi
+!restapi/configure_core.go
