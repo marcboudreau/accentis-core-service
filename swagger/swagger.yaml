@@ -9,8 +9,6 @@ host: api.accentis.local
 schemes:
   - http
 
-basePath: /v1/core
-
 produces:
   - application/json
 
