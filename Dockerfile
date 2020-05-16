@@ -18,6 +18,10 @@ RUN apk --no-cache add ca-certificates
 
 FROM scratch
 
+ENV HOST=0.0.0.0
+
+ENV PORT=8080
+
 COPY --from=build /go/bin/app /app
 
 COPY --from=alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
