@@ -1,4 +1,4 @@
 core-server
 models/
-restapi/*
-! restapi/configure_core.go
+restapi/**
+!restapi/configure_core.go
